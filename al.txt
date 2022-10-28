@@ -1,0 +1,23 @@
+5
+Age Education Income Marital_Status Buy_Computer
+20
+36-55   Master's        High    Single  Yes
+18-35   High_School     Low     Single  No
+36-55   Master's        Low     Single  Yes
+18-35   Bachelor's      High    Single  No
+<18     High_School     Low     Single  Yes
+18-35   Bachelor's      High    Married No
+36-55   Bachelor's      Low     Married No
+>55     Bachelor's      High    Single  Yes
+36-55   Master's        Low     Married No
+>55     Master's        Low     Married Yes
+36-55   Master's        High    Single  Yes
+>55     Master's        High    Single  Yes
+<18     High_School     High    Single  No
+36-55   Master's        Low     Single  Yes
+36-55   High_School     Low     Single  Yes
+<18     High_School     Low     Married Yes
+18-35   Bachelor's      High    Married No
+>55     High_School     High    Married Yes
+>55     Bachelor's      Low     Single  Yes
+36-55   High_School     High    Married No
