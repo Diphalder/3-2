@@ -317,13 +317,6 @@ void fun(string str,string egde,vector<lld> va, vector<lld> vrow)
 
 
 
-
-
-
-
-
-
-
 }
 
 
