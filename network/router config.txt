@@ -1,0 +1,7 @@
+enable
+config terminal
+interface se 0/1/0
+ip address <point ip adress> <mask>
+no shutdown
+exit
+exit

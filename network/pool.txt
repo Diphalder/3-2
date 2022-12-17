@@ -1,0 +1,31 @@
+a.     Configure R2 to exclude the first 10 addresses from the R1 LAN.
+
+Open configuration window
+
+R2(config)# ip dhcp excluded-address 192.168.10.1 192.168.10.10
+
+b.     Configure R2 to exclude the first 10 addresses from R3 LAN.
+
+Step 2: Create a DHCP pool on R2 for the R1 LAN.
+a.     Create a DHCP pool named R1-LAN (case-sensitive).
+
+R2(config)# ip dhcp pool R1-LAN
+
+b.     Configure the DHCP pool to include the network address, the default gateway, and the IP address of the DNS server.
+
+R2(dhcp-config)# network 192.168.10.0 255.255.255.0
+
+R2(dhcp-config)# default-router 192.168.10.1
+
+R2(dhcp-config)# dns-server 192.168.20.254
+
+
+
+
+ Configure the helper address for the LAN interface on R1.
+
+Open configuration window
+
+R1(config)# interface g0/0
+
+R1(config-if)# ip helper-address 10.1.1.2

@@ -1,0 +1,14 @@
+enable
+config terminal
+router rip
+network <unkown network ip ...0>
+
+network <unkown network ip ...0>
+network <unkown network ip ...0>
+
+
+exit
+exit
+exit
+
+[[[note : sob network gula add korte hbe ... na hoy kaj kore na]]]]
