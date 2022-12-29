@@ -9,17 +9,20 @@ def bfs(u,ed):
     global costt
     global totalcost
     global q
+    global pathcost
     q.put((0,u))
     visit[u]=1
+    totalcost[u]=0
     while(q.empty!=1):
         cost,u=q.get()
-        print(u,end="->")
+        print(u,end=",")
         if(u==ed):
+            pathcost=min(pathcost,totalcost[u])
             return
         for v in graph[u]:
             if(visit[v]==0):
                 cost=costt[(u,v)]
-                totalcost[v]=totalcost[u]+int(cost)
+                totalcost[v]=min(totalcost[u]+int(cost),totalcost[v])
                 q.put((totalcost[v],v))
                 visit[v]=1
     
@@ -28,6 +31,8 @@ graph={}
 visit={}
 totalcost={}
 costt={}
+path=[]
+pathcost=100000000000000
 
 n=int(input("enter number of vertex: "))
 
@@ -37,7 +42,7 @@ for i in range(n):
         vertex.append(x)
         graph[x]=[]
         visit[x]=0
-        totalcost[x]=0
+        totalcost[x]=100000000000000
 
 
 n=int(input("enter number of egde: "))
@@ -58,4 +63,6 @@ end =input("enter end node : ")
 print("Uniformed sequence = [ ",end="")
 bfs(start,end)
 print(" ] ")
+
+print("path cost = ", pathcost)
 

@@ -9,7 +9,7 @@ def bfs(u):
     visit[u]=1
     while(len(q)!=0):
         u=q.pop(0)
-        print(u,end="->")
+        print(u,end=",")
         for v in graph[u]:
             if(visit[v]==0):
                 q.append(v)

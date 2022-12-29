@@ -1,7 +1,7 @@
 import numpy as np
 
 def dfs(u):
-    print(u,end="->")
+    print(u,end=",")
     global visit
     global graph
     visit[u]=1
