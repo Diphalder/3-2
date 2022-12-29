@@ -30,7 +30,8 @@ for i in range(n):
         graph[u].append(v)
 
 
-start=vertex[0]
+
+start=input("enter start node : ")
 
 print("DFS sequence = [ ",end="")
 dfs(start)
@@ -39,7 +40,25 @@ print(" ] ")
 
 
 
-
+"""
+7
+S
+A
+B
+C
+D
+E
+G
+8
+S A
+S B
+S C
+A D
+A E
+A G
+B G
+C G
+"""
 
 
 

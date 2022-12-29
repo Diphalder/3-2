@@ -42,3 +42,22 @@ print("BFS sequence = [ ",end="")
 bfs(start)
 print(" ] ")
 
+"""
+7
+S
+A
+B
+C
+D
+E
+G
+8
+S A
+S B
+S C
+A D
+A E
+A G
+B G
+C G
+"""

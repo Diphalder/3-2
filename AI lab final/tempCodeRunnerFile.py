@@ -1,2 +1,17 @@
-
-        index=mid
+7
+S 8 
+A 8
+B 4
+C 3
+D 1000000
+E 1000000
+G 0
+8 
+S A 1
+S B 5
+S C 8
+A D 3
+A E 7
+A G 9
+B G 4
+C G 5

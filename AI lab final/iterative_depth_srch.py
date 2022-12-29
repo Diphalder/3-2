@@ -63,3 +63,22 @@ for depth in range(len(vertex)):
 
 
 
+"""
+7
+S 
+A
+B
+C
+D
+E
+G
+8
+S A
+S B
+S C
+A D
+A E
+A G
+B G
+C G
+"""
