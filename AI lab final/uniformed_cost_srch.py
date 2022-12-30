@@ -103,3 +103,46 @@ E G 6
 F G 2
 D H 7
 """
+
+
+"""
+5
+A
+B
+C
+D
+E
+9
+A B 10
+A C 3
+B C 1
+B D 2
+C B 4
+C D 8
+C E 2
+D E 7
+E D 9
+"""
+"""
+6
+A
+B
+C
+D
+E
+F
+12
+A B 5
+A C 1
+B A 5
+B D 2
+B E 2
+C A 1
+C F 4
+D B 2
+E B 2
+E F 3
+F C 4
+F E 3
+
+"""
