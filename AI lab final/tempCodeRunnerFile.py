@@ -1,15 +1,17 @@
-6
-A 0
-B 5
-D 20
-C 10
-E 3
-F 30
 7
-A B
-A C
-B D
-C D
-D E
-B F
-F D
+S
+A
+B
+C
+D
+E
+G
+8
+S A
+S B
+S C
+A D
+A E
+A G
+B G
+C G
