@@ -73,8 +73,6 @@ for depth in range(len(vertex)):
         break
 
 
-
-
 """
 7
 S
