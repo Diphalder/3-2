@@ -1,18 +1,16 @@
-2
 7
-S 8
-A 8
-B 4
-C 3
-D 1000000
-E 1000000
-G 0
-8 
-S A 1
-S B 5
-S C 8
-A D 3
-A E 7
-A G 9
-B G 4
-C G 5
+s 5
+a 3
+c 3
+e 2
+g 0
+b 4
+d 1
+7
+s a 2
+s b 2
+b d 2
+d g 1
+a c 1
+c e 1
+e g 3

@@ -1,45 +1,41 @@
 import numpy as np
 
-def bidirectional(graph, start, end):
-  # Create two sets for storing visited nodes
-  visited_start = set()
-  visited_end = set()
-  
-  # Create two queues for storing the paths
+def bidirectional(graph,revgraph, start, end):
+  global visit1
+  global visit2
+
   queue_start = [(start, [start])]
   queue_end = [(end, [end])]
   
-  # Loop until one of the queues is empty
-  while queue_start and queue_end:
-    # Get the first node from the start queue
-    (vertex_start, path_start) = queue_start.pop(0)
+  while (queue_start and queue_end):
+    (u1, path_forward) = queue_start.pop(0)
     
-    # Check if this node has been visited by the other queue
-    if vertex_start in visited_end:
-      return path_start + list(reversed(path_end))
+
+    if visit2[u1]:  
+      return path_forward + list(reversed(path_backward))
     
-    # Mark the node as visited and add its neighbors to the queue
-    visited_start.add(vertex_start)
-    for neighbor in graph[vertex_start]:
-      if neighbor not in visited_start:
-        queue_start.append((neighbor, path_start + [neighbor]))
+    visit1[u1]=1
+    for v in graph[u1]:
+      if(visit1[v]==0):
+        queue_start.append((v, path_forward + [v]))
     
-    # Get the first node from the end queue
-    (vertex_end, path_end) = queue_end.pop(0)
+    (u2, path_backward) = queue_end.pop(0)
     
-    # Check if this node has been visited by the other queue
-    if vertex_end in visited_start:
-      return path_end + list(reversed(path_start))
+    if visit1[u2]:  
+      return path_backward + list(reversed(path_forward))
     
-    # Mark the node as visited and add its neighbors to the queue
-    visited_end.add(vertex_end)
-    for neighbor in graph[vertex_end]:
-      if neighbor not in visited_end:
-        queue_end.append((neighbor, path_end + [neighbor]))
+    visit2[u2]=1
+    for v in revgraph[u2]:
+      if(visit2[v]==0):
+        queue_end.append((v, path_backward + [v]))
   return None
     
 vertex=[]
 graph={}
+revgraph={}
+visit1={}
+visit2={}
+
 
 n=int(input("enter number of vertex: "))
 
@@ -48,6 +44,9 @@ for i in range(n):
     if(x not in vertex):
         vertex.append(x)
         graph[x]=[]
+        revgraph[x]=[]
+        visit1[x]=0
+        visit2[x]=0
 
 n=int(input("enter number of egde: "))
 for i in range(n):
@@ -55,13 +54,17 @@ for i in range(n):
     u,v= x.split()
     if(u in vertex and v in vertex):
         graph[u].append(v)
+        revgraph[v].append(u)
 
 
 start=input("enter start node : ")
 end =input("enter end node : ")
 
 print("BFS sequence = [ ",end="")
-bidirectional(graph,start,end)
+x=list(bidirectional(graph,revgraph,start,end))
+x.reverse()
+
+print(x)
 print(" ] ")
 
 """
@@ -73,21 +76,13 @@ C
 D
 E
 G
-16
+8
 S A
-A S
 S B
-B S
 S C
-C S
 A D
-D A
 A E
-E A
 A G
-G A
 B G
-G B
 C G
-G C
 """
