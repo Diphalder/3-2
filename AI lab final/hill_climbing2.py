@@ -8,10 +8,16 @@ def hill_climbing(graph, start):
     if (len(graph[current])==0):
         return path
     
+    f=1
+
 
     for adj in graph[current]:
-        if(int(height[current])<int(height[adj])):
+        if(int(height[current])<=int(height[adj])):
             neighbor=adj
+            f=0
+
+    if(f):
+        return path
 
     current = neighbor
     path.append(current)
@@ -46,14 +52,16 @@ start=input("enter start node : ")
 print(hill_climbing(graph, start)) 
 
 """
-4
+5
 A 0
 B 5
 D 20
 C 10
-4
+E 3
+5
 A B
 A C
 B D
 C D
+D E
 """
