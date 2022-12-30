@@ -19,10 +19,16 @@ def bidirectional(graph,revgraph, start, end):
       if(visit1[v]==0):
         queue_start.append((v, path_forward + [v]))
     
+
+
+
+
+
+
     (u2, path_backward) = queue_end.pop(0)
     
     if visit1[u2]:  
-      return path_backward + list(reversed(path_forward))
+      return path_forward + list(reversed(path_backward))
     
     visit2[u2]=1
     for v in revgraph[u2]:
@@ -60,12 +66,10 @@ for i in range(n):
 start=input("enter start node : ")
 end =input("enter end node : ")
 
-print("BFS sequence = [ ",end="")
+print("BFS sequence =  ",end="")
 x=list(bidirectional(graph,revgraph,start,end))
-x.reverse()
 
 print(x)
-print(" ] ")
 
 """
 7
