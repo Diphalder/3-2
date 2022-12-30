@@ -1,6 +1,7 @@
 import numpy as np
 
-def dfs(u,goal,depth):
+
+def dfs(u,goal,depth,par):
   
     global visit
     global graph
@@ -15,7 +16,8 @@ def dfs(u,goal,depth):
     for v in graph[u]:
         if(visit[v]==0 and nodedepth[u]+1<=depth):
             nodedepth[v]=nodedepth[u]+1
-            dfs(v,goal,depth)
+            par[v]=u
+            dfs(v,goal,depth,par)
     
 vertex=[]
 graph={}
@@ -35,6 +37,7 @@ for i in range(n):
         visit[x]=0
         nodedepth[x]=0
 
+
 n=int(input("enter number of egde: "))
 for i in range(n):
     x = input()
@@ -53,11 +56,20 @@ for depth in range(len(vertex)):
     print("\titeration - ",depth)
     print("DFS sequence = [ ",end="")
 
+    par={}
     for v in vertex:
         visit[v]=0
-    dfs(start,end,depth)
+        par[v]=None
+    dfs(start,end,depth,par)
     print(" ] ")
     if(srchcomplete):
+        v=end
+        path=[]
+        while v is not None:
+            path.append(v)
+            v=par[v]
+        path.reverse()
+        print("the path is = ",  path)
         break
 
 
@@ -65,7 +77,7 @@ for depth in range(len(vertex)):
 
 """
 7
-S 
+S
 A
 B
 C

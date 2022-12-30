@@ -1,5 +1,8 @@
 import numpy as np
 
+
+path=[]
+par={}
 def dfs(u):
     print(u,end=",")
     global visit
@@ -7,7 +10,9 @@ def dfs(u):
     visit[u]=1
     for v in graph[u]:
         if(visit[v]==0):
+            par[v]=u
             dfs(v)
+
     
 vertex=[]
 graph={}
@@ -21,6 +26,7 @@ for i in range(n):
         vertex.append(x)
         graph[x]=[]
         visit[x]=0
+        par[x]=None
 
 n=int(input("enter number of egde: "))
 for i in range(n):
@@ -30,12 +36,21 @@ for i in range(n):
         graph[u].append(v)
 
 
-
 start=input("enter start node : ")
+end =input("enter end node : ")
 
 print("DFS sequence = [ ",end="")
 dfs(start)
 print(" ] ")
+
+
+v=end
+path=[]
+while v is not None:
+    path.append(v)
+    v=par[v]
+path.reverse()
+print("the path is = ",  path)
 
 
 

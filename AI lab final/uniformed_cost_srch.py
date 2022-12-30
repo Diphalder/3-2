@@ -3,6 +3,9 @@ import numpy as np
 from queue import PriorityQueue
 q=PriorityQueue()
 
+
+path=[]
+par={}
 def bfs(u,ed):
     global visit
     global graph
@@ -23,6 +26,7 @@ def bfs(u,ed):
             if(visit[v]==0):
                 cost=costt[(u,v)]
                 totalcost[v]=min(totalcost[u]+int(cost),totalcost[v])
+                par[v]=u
                 q.put((totalcost[v],v))
                 visit[v]=1
     
@@ -31,7 +35,7 @@ graph={}
 visit={}
 totalcost={}
 costt={}
-path=[]
+
 pathcost=100000000000000
 
 n=int(input("enter number of vertex: "))
@@ -43,6 +47,7 @@ for i in range(n):
         graph[x]=[]
         visit[x]=0
         totalcost[x]=100000000000000
+        par[x]=None
 
 
 n=int(input("enter number of egde: "))
@@ -65,6 +70,15 @@ bfs(start,end)
 print(" ] ")
 
 print("path cost = ", pathcost)
+
+
+v=end
+path=[]
+while v is not None:
+    path.append(v)
+    v=par[v]
+path.reverse()
+print("the path is = ",  path)
 
 """
 9

@@ -3,6 +3,8 @@ import numpy as np
 from queue import PriorityQueue
 q=PriorityQueue()
 newQ=PriorityQueue()
+
+par={}
 def bfs(u,ed):
     global graph
     global costt
@@ -24,6 +26,7 @@ def bfs(u,ed):
         q.queue.clear()
         for v in graph[u]:
                 cost=costt[(u,v)]
+                par[v]=u
                 totalcost[v]=min(totalcost[u]+int(cost),totalcost[v])
                 newQ.put((heuristic[v],v))
         for i in range(beamsize):
@@ -53,6 +56,7 @@ for i in range(n):
         heuristic[x]=h
         graph[x]=[]
         totalcost[x]=100000000000000
+        par[x]=None
 
 
 n=int(input("enter number of egde: "))
@@ -75,6 +79,15 @@ bfs(start,end)
 print(" ] ")
 
 print("path cost = ", pathcost)
+
+v=end
+path=[]
+while v is not None:
+    path.append(v)
+    v=par[v]
+path.reverse()
+print("the path is = ",  path)
+
 
 """
 2
