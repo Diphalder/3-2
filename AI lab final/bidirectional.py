@@ -1,7 +1,7 @@
 import numpy as np
 
-forwardsrch=[]
-backwardsrch=[]
+forwardBFS=[]
+backwardBFS=[]
 
 def bidirectional(graph,revgraph, start, end):
   global visit1
@@ -14,8 +14,8 @@ def bidirectional(graph,revgraph, start, end):
   while (queue_forward and queue_backward):
     (u1, path_forward) = queue_forward.pop(0)
     (u2, path_backward) = queue_backward.pop(0)
-    forwardsrch.append(u1)
-    backwardsrch.append(u2)
+    forwardBFS.append(u1)
+    backwardBFS.append(u2)
 
     if visit2[u1]:  
       path_backward.remove(u1)
@@ -71,8 +71,8 @@ end =input("enter end node : ")
 
 print("path =  ",bidirectional(graph,revgraph,start,end))
 
-print("forward BFS = ",forwardsrch)
-print("backward BFS = ",backwardsrch)
+print("forward BFS = ",forwardBFS)
+print("backward BFS = ",backwardBFS)
 
 """
 7
