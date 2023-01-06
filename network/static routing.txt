@@ -12,6 +12,9 @@ exit
 
 
 
+hop adress=>last known network point from the ROUTER
 
 
-					hop adress=>last known network point
+
+
+					

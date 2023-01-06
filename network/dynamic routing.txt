@@ -1,10 +1,10 @@
 enable
 config terminal
 router rip
-network <unkown network ip ...0>
+network <adj network ip ...0>
 
-network <unkown network ip ...0>
-network <unkown network ip ...0>
+network <adj network ip ...0>
+network <adj network ip ...0>
 
 
 exit

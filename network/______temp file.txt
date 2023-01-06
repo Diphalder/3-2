@@ -1,3 +1,20 @@
-ip dhcp pool r0
-network 192.168.10.0 255.255.255.0 
-default-router 192.168.10.1
+enable
+config terminal
+interface gig 0/1
+ip address 172.31.103.33 255.255.255.224
+no shutdown
+exit
+exit
+
+en
+config t
+ip default-gateway 172.31.103.65
+interface VLAN1
+ip add 172.31.103.66 255.255.255.240
+no shutdown
+exit
+exit
+
+
+
+
