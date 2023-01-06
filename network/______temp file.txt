@@ -1,0 +1,5 @@
+ip dhcp pool <poolname>
+network <network name ._._.0 > <mask>
+default-router <router inside ip or default get way of the router>
+dns-server <dns server ip>
+exit

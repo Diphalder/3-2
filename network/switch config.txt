@@ -1,0 +1,10 @@
+en
+config t
+ip default-gateway <ip>
+interface <vlan>
+ip add <ip> <mask>
+no shutdown
+exit
+exit
+
+

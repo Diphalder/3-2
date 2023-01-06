@@ -1,0 +1,20 @@
+ip route <unknown network ...0 ip> <mask> <hop adress port>
+
+
+
+enable
+config terminal
+ip route <unknown network __.__.__.0 ip> <mask> <hop adress port>
+no shutdown
+exit
+exit
+
+
+
+
+hop adress=>last known network point from the ROUTER
+
+
+
+
+					

@@ -1,0 +1,87 @@
+################## router ###################
+
+enable
+config terminal
+interface se 0/1/0
+ip address <point_ip_adress> <mask>
+no shutdown
+exit
+exit
+
+
+################ switch ################
+
+en
+config t
+ip default-gateway <ip>
+interface <vlan>
+ip add <ip> <mask>
+no shutdown
+exit
+exit
+
+
+############### dynamic routing ##################
+
+enable
+config terminal
+router rip
+network <adj network ip ...0>
+network <adj network ip ...0>
+network <adj network ip ...0>
+
+exit
+exit
+exit
+
+
+################# static routing ######################
+
+
+enable
+config terminal
+ip route <unknown network __.__.__.0 ip> <mask> <hop adress port>
+ip route <unknown network __.__.__.0 ip> <mask> <hop adress port>
+ip route <unknown network __.__.__.0 ip> <mask> <hop adress port>
+exit
+exit
+
+
+hop adress=>last known network point from the ROUTER
+
+############# exclude ip #################
+
+
+ip dhcp excluded-address <start ip> <end ip>
+
+
+##########create pool#############
+
+enable
+config t
+ip dhcp pool <poolname>
+network <network name ._._.0 > <mask>
+default-router <router inside ip or default get way of the router>
+dns-server <dns server ip>
+exit
+exit
+
+## kono helper er jhamelae jabo na router er moddhei pool banabo##
+
+
+######### create helper ########
+
+interface <router inside wire>
+ip helper-address <pool created router entrance ip>
+					
+
+############## Configure a Router as a DHCP Client ############### activate the interface ###########.
+
+
+interface g0/1
+ip address dhcp
+no shutdown
+exit
+
+
+##################
